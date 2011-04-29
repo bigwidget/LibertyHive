@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429163948) do
+ActiveRecord::Schema.define(:version => 20110429163956) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "commenter_id"
+    t.integer  "link_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["link_id"], :name => "index_comments_on_link_id"
+
+  create_table "links", :force => true do |t|
+    t.string   "url"
+    t.string   "headline"
+    t.integer  "submitter_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -28,10 +48,34 @@ ActiveRecord::Schema.define(:version => 20110429163948) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fname"
+    t.string   "lname"
+    t.text     "about"
+    t.string   "city"
+    t.string   "occupation"
+    t.string   "organization"
+    t.string   "organization_url"
+    t.string   "linkedin_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "blog_url"
+    t.string   "personal_url"
+    t.boolean  "email_public"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voter_id"
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id"], :name => "index_votes_on_votable_id"
+  add_index "votes", ["voter_id", "votable_id"], :name => "index_votes_on_voter_id_and_votable_id", :unique => true
 
 end
