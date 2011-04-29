@@ -1,0 +1,163 @@
+#background {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -9999;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+	/*background: #222933;*/
+}
+
+body {
+	background: no-repeat #222933;
+	overflow: hidden;
+}
+
+h1.signup {
+	font-size: 250%;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 7%;
+}
+
+h1.page_title {
+	font-size: 150%;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+p.youremail {
+	font-size: 150%;
+	color: black;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.email_input {
+	font-size: 120%;
+	width: 97.2%;
+	margin-bottom: 15px;
+}
+
+.go_button {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+#left {
+	position: relative;
+	float: left;
+	width: 44%;
+	margin: 0;
+	padding: 0;
+}
+
+#right {
+	position: relative;
+	float: right;
+	width: 49%;
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+  text-align: left;
+	position: absolute;
+	left: 34%;
+	top: 10%;
+  width: 60%;
+	min-width: 450px;
+	max-width: 700px;
+	overflow: auto;
+	padding: 0;
+}
+
+#blue_box {
+	position: relative; /* so that divider has appropriate height */
+	width: 80%;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  padding: 3%;
+  background: #5e88bf;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+	filter: alpha(opacity=95);
+	opacity: 0.95;
+	overflow: auto; /*needed so that div stretches with child divs*/
+}
+
+#links {
+  float: right;
+	margin-top: 2%;
+	margin-right: 14%;
+	text-align: center;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width: 16em;
+	color: #416590;
+	font-weight: bold;
+	background: #92b3db;
+	overflow: auto;
+	-moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+
+#links a {
+	color: #416590;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 100%;
+}
+
+#site_title {
+	font-family: "Britannic Bold", "Arial Black";
+	font-size: 350%;
+	font-weight: bold;
+}
+
+#coming_soon {
+	color: #f57c0e;
+	font-size: 130%;
+	font-weight: bold;
+	margin-bottom: 3%;
+}
+
+#divider{
+	position:absolute;
+	left:49%;
+	top:6%;
+	bottom:6%;
+	border-left:1px solid white;
+}
+ 
+#copyright {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 20px;
+	font-size: 80%;
+	color: white;
+}
+
+#debug {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-left: 20px;
+	font-size: 80%;
+	color: white;
+}
+
+#error_explanation {
+	color: #f57c0e;
+	font-size: 80%;
+	font-weight: bold;
+}

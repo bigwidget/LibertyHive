@@ -1,0 +1,9 @@
+<%= pluralize(item.votes.count + 1, "point") %>
+by <%= link_to item.submitter.name, item.submitter %>
+<%= time_ago_in_words(item.created_at) %> ago
+<% if defined?(ref_link) && !ref_link.nil? %>
+| <%= ref_link %>
+<% end %>
+<% if defined?(ref_link2) && !ref_link2.nil? %>
+| <%= ref_link2 %>
+<% end %>

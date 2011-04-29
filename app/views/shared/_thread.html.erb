@@ -1,0 +1,26 @@
+	<% indent = level<=7 ? level*20 : 140%>
+	<% li_style = "style=\"margin-left:#{indent}px\""%>
+	<li class="list-item" <%=li_style.html_safe%>>
+		<%= render 	:partial => 'shared/vote',
+								:locals => {:votable => comment}  %>
+		<div class="item-main">
+			<div class="meta-head">
+			<%= render 	:partial => 'shared/meta', 
+									:locals => {:item => comment,
+															:ref_link => link_to("link", comment)} %>
+			</div>
+			<div>
+				<%= comment.content %>
+			</div>
+			<div>
+				<%= link_to("reply", comment, :class => "reply-link") %>
+			</div>
+		</div>
+	</li>	
+
+<% if !comment.replies.empty? %>
+	<% comment.replies.each do |c| %>
+	<%= render 	:partial => 'shared/thread',
+							:locals => {:comment => c, :level => level + 1} %>
+	<% end %>
+<% end %>

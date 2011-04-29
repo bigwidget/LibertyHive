@@ -1,2 +1,11 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<% if !signed_in? %>
+<h1 class="page_title">Contact Us</h1>
+<p>Questions about our plans? Want to help recruit members? Technical issues? Contact us at info [at] hivechatter.com. If you're working within a prominent libertarian organization, we're particularly interested in talking to you about your needs.</p>
+
+<% else %>
+<h1>Contact</h1>
+<p>
+	info [at] hivechatter.com
+</p>
+
+<% end %>

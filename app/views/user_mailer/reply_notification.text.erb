@@ -1,0 +1,9 @@
+--In "<%= "#{@thread}" %>", <%= @commenter %> wrote:
+
+<%= @comment.content.html_safe %>
+
+Reply via: <%= comment_url(@comment) %>
+
+--Your comment: <%= @parent_comment.html_safe %>
+
+-LH

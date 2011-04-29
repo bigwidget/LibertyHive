@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Libertarian Hive</title>
+	<%= csrf_meta_tag %>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  <%= stylesheet_link_tag 'reset', 'landing_page/custom',
+ 													'formtastic', 'formtastic_changes' %>
+	<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+  <%= javascript_include_tag :defaults %>
+</head>
+
+<body>
+	
+	<%= image_tag("background.jpg", :alt => "Statue of Liberty", 
+																	:id => "background") %>
+	
+	<div id="container">
+		<h1 id="site_title">Libertarian Hive</h1>
+		<div id="blue_box">	<%= yield %>	</div>	
+		<div id="links">
+			<%= link_to "about", about_path %> &nbsp; | &nbsp;
+			<%= link_to "contact", contact_path %> &nbsp; | &nbsp;
+			<%= link_to "sign up", root_path %>
+		</div>
+	</div>
+	<p id="copyright"> &copy; <%= DateTime.now.year %></p>
+</body>
+</html>
