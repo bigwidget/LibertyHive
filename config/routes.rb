@@ -16,7 +16,7 @@ Libertyhive::Application.routes.draw do
   resources :comments
   resources :votes
   
-  root :to => 'pages#about'
+  root :to => 'links#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

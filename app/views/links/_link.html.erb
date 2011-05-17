@@ -1,0 +1,14 @@
+<li class="list-item">
+	<span class="rank"><%= "#{rank}." %></span>
+	<%= render :partial => 'shared/vote', :locals => {:votable => link} %>
+	<div class="item-main">
+		<div class="headline">
+			<a href="<%= link.full_url %>"><%= link.headline %></a>
+		</div>
+ 		<div class="meta-foot">
+			<%= render 	:partial => 'shared/meta',
+									:locals => {:item => link,
+															:ref_link => discussion_link(link)} %>
+		</div>
+	</div>
+</li>

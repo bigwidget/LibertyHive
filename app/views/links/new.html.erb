@@ -1,0 +1,11 @@
+<h1>Submit a link</h1>
+
+<%= semantic_form_for(@link) do |f| %>
+	<%= f.inputs do %>
+		<%= f.input :url, :required => true %>
+		<%= f.input :headline, :required => true %>
+	<% end %>
+	<% f.buttons do %>
+		<%= f.commit_button 'Submit' %>
+	<% end %>
+<% end %>
