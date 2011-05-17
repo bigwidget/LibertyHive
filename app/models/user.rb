@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   has_many :links, :foreign_key => "submitter_id"
   has_many :votes, :foreign_key => "voter_id"
   has_many :comments, :foreign_key => "commenter_id"
-    
-  #need to do profile model http://stackoverflow.com/questions/4307743/profile-model-for-devise-users
-  
+      
   def name
     fname + " " + lname
   end
