@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429163956) do
+ActiveRecord::Schema.define(:version => 20110517173723) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -32,6 +32,25 @@ ActiveRecord::Schema.define(:version => 20110429163956) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "about"
+    t.string   "city"
+    t.string   "occupation"
+    t.string   "organization"
+    t.string   "organization_url"
+    t.string   "linkedin_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "blog_url"
+    t.string   "personal_url"
+    t.boolean  "email_public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -48,19 +67,6 @@ ActiveRecord::Schema.define(:version => 20110429163956) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "fname"
-    t.string   "lname"
-    t.text     "about"
-    t.string   "city"
-    t.string   "occupation"
-    t.string   "organization"
-    t.string   "organization_url"
-    t.string   "linkedin_url"
-    t.string   "facebook_url"
-    t.string   "twitter_url"
-    t.string   "blog_url"
-    t.string   "personal_url"
-    t.boolean  "email_public"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
