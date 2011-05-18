@@ -4,6 +4,7 @@
 	<tr>Link ID: <%= @link.id %></tr>
 </table><br /><br />
 
+<% if user_signed_in? %>
 <h1>Submit a comment</h1>
 
 <%= form_for current_user.comments.build( :link_id => @link.id, 
@@ -18,6 +19,7 @@
 	<div class="actions">
 		<%= f.submit "Submit" %>
 	</div>
+<% end %>
 <% end %>
 
 <% unless @root_comments.empty? %>

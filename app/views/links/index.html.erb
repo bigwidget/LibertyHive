@@ -1,16 +1,3 @@
-<% if !signed_in? %>
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/en_US/all.js"></script>
-<script>
-   FB.init({ 
-      appId:'130370623700799', cookie:true, 
-      status:true, xfbml:true 
-   });
-</script>
-<fb:login-button>Login with Facebook</fb:login-button>
-<%= link_to "Sign up now!", new_user_session_path, :class => "signup_button round" %>
-<% end %>
-
 <ol class="list">
 	<% @links.each_index do |i| %>
 		<%= render :partial => 'shared/link', :locals => {:link => @links[i], :rank => i + 1} %>

@@ -1,5 +1,6 @@
+<% if @user == current_user %>
 <%= link_to("Edit your profile", edit_user_registration_path(@user)) %>
-<br />
+<% end %>
 
 <table>
 	<tr>
@@ -11,7 +12,7 @@
 		<td><%= @user.karma %></td>
 	</tr>
 	<tr>
-		<td valign=top>Hive&nbsp;activity:</td>
+		<td valign=top>Hive&nbsp;activity:&nbsp;&nbsp;</td>
 		<td>
 		<% if @activity %>
 			<% if !@user.links.empty? %>
