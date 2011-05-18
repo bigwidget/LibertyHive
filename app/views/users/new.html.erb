@@ -1,2 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div id="left">
+	<h1 class="signup">Sign up</h1>
+	<p class="youremail">Your email</p>
+	<%= form_for(@user) do |f| %>
+		<%= f.text_field :email, :class => "email_input" %>
+		<div class="actions go_button"><%= image_submit_tag "go.gif" %></div>
+	<% end %>
+	<% if @user.errors.any? %>
+	  <div id="error_explanation">
+	    <% @user.errors.full_messages.each do |msg| %>
+	      <%= msg %>
+	    <% end %>
+	  </div>
+	<% end %>
+</div>
+<div id="divider"></div>
+<div id="right">
+  <h2 id="coming_soon">COMING SOON!</h2>
+	<p>Browse and discuss the best daily content as determined by fellow libertarians.</p>
+	<p>The sign up list grows daily and includes people from CATO, Reason Magazine and the Institute for Humane Studies.</p>
+</div>

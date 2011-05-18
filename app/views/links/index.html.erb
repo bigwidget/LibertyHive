@@ -13,7 +13,7 @@
 
 <ol class="list">
 	<% @links.each_index do |i| %>
-		<%= render :partial => 'link', :locals => {:link => @links[i], :rank => i + 1} %>
+		<%= render :partial => 'shared/link', :locals => {:link => @links[i], :rank => i + 1} %>
 	<% end %>
 </ol>
 

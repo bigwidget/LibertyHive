@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   has_one :profile
   accepts_nested_attributes_for :profile
+  validates_associated :profile
   
   has_many :links, :foreign_key => "submitter_id"
   has_many :votes, :foreign_key => "voter_id"

@@ -1,0 +1,18 @@
+<li class="list-item">
+	<%= render 	:partial => 'shared/vote',
+							:locals => {:votable => comment}  %>
+	<div class="item-main">
+		<div class="meta-head">
+		<%= render 	:partial => 'shared/meta', 
+								:locals => {:item => comment,
+														:ref_link => link_to("link", comment),
+														:ref_link2 => link_to("full discussion", comment.link)} %>
+		</div>
+		<div>
+			<%= comment.content %>
+		</div>
+		<div>
+			<%= link_to("reply", comment, :class => "reply-link") %>
+		</div>
+	</div>
+</li>	

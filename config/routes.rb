@@ -1,23 +1,23 @@
 Libertyhive::Application.routes.draw do
 
   devise_for :users
-    
+  
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
     
   resources :users do
     member do
-      get :comments, :links
+      get :comments, :links, :upvoted
     end
   end
-  
+    
   resources :links
   resources :comments
   resources :votes
   
   root :to => 'links#index'
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

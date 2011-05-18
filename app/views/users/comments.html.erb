@@ -1,0 +1,10 @@
+<h1>Comments by <%= @user.name %></h1>
+
+<ol class="list">
+	<% @comments.each do |c| %>
+		<%= render :partial => 'users/comment',
+							 :locals => {:comment => c} %>
+	<% end %>
+</ol>
+
+<%= will_paginate @comments %>

@@ -1,2 +1,95 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= link_to("Edit your profile", edit_user_registration_path(@user)) %>
+<br />
+
+<table>
+	<tr>
+		<td valign=top>Name:</td>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<td valign=top>Karma:</td>
+		<td><%= @user.karma %></td>
+	</tr>
+	<tr>
+		<td valign=top>Hive&nbsp;activity:</td>
+		<td>
+		<% if @activity %>
+			<% if !@user.links.empty? %>
+			<%= link_to("link submissions", links_user_path(@user)) %> | 
+			<% end %>
+			<% if !@user.comments.empty? %>
+			<%= link_to("comments", 				comments_user_path(@user)) %> | 
+			<% end %>
+			<% if !@link_votes.empty? %>
+			<%= link_to("upvoted links",		upvoted_user_path(@user)) %>
+			<% end %>
+		<% else %>
+			none
+		<% end %>
+		</td>
+	</tr>
+	<% if @user.profile.about.present? %>
+	<tr>
+		<td valign=top>About:</td>
+		<td><%= @user.profile.about %></td>
+	</tr>
+	<% end %>
+
+	<% if @user.profile.city.present? %>
+	<tr>
+		<td valign=top>City:</td>
+		<td><%= @user.profile.city %></td>
+	</tr>
+	<% end %>
+
+	<% if @work %>
+	<tr>
+		<td valign=top>Work:</td>
+		<td>
+			<% if @user.profile.occupation.present? %>
+				<%= @user.profile.occupation %>
+				<% if @user.profile.organization.present? %>
+				at
+				<% end %>
+			<% end %>
+			<% if @user.profile.organization.present? %>
+				<% if @user.profile.organization_url.present? %>
+					<%= link_to @user.profile.organization, @user.profile.organization_url %>
+				<% else %>
+					<%= @user.profile.organization %>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+	
+	<% if @any_url %>
+	<tr>
+		<td valign=top>Find Me:</td>
+		<td>
+			<% if @user.profile.linkedin_url.present? %>
+				<%= link_to "LinkedIn", @user.profile.linkedin_url %>
+			<% end %>
+			<% if @user.profile.twitter_url.present? %>
+				<%= link_to "Twitter", @user.profile.twitter_url %>
+			<% end %>
+			<% if @user.profile.blog_url.present? %>
+				<%= link_to "Blog", @user.profile.blog_url %>
+			<% end %>
+			<% if @user.profile.personal_url.present? %>
+				<%= link_to "Personal Site", @user.profile.personal_url %>
+			<% end %>
+			<% if @user.profile.facebook_url.present? %>
+				<%= link_to "Facebook", @user.profile.facebook_url %>
+			<% end %>	
+		</td>
+	</tr>
+	<% end %>
+	
+	<% if @user.profile.email_public %>
+	<tr>
+		<td valign=top>Email:</td>
+		<td><%= @user.email %></td>
+	</tr>
+	<% end %>
+</table>
