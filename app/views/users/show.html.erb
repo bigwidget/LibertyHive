@@ -1,5 +1,5 @@
 <% if @user == current_user %>
-<%= link_to("Edit your profile", edit_user_registration_path(@user)) %>
+<%= link_to("Edit your account", edit_user_registration_path(@user)) %>
 <% end %>
 
 <table>
@@ -15,13 +15,17 @@
 		<td valign=top>Hive&nbsp;activity:&nbsp;&nbsp;</td>
 		<td>
 		<% if @activity %>
+			<% @previous = false%>
 			<% if !@user.links.empty? %>
-			<%= link_to("link submissions", links_user_path(@user)) %> | 
+			<%= link_to("link submissions", links_user_path(@user)) %> 
+			<% previous = true %>
 			<% end %>
 			<% if !@user.comments.empty? %>
-			<%= link_to("comments", 				comments_user_path(@user)) %> | 
+			<% if previous %> | <% end %>
+			<%= link_to("comments", 				comments_user_path(@user)) %> 
 			<% end %>
 			<% if !@link_votes.empty? %>
+			<% if previous %> | <% end %>
 			<%= link_to("upvoted links",		upvoted_user_path(@user)) %>
 			<% end %>
 		<% else %>

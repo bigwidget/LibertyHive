@@ -4,17 +4,26 @@
   <%= devise_error_messages! %>
 
 	<%= f.inputs do %>
-		<%= f.input :current_password, :hint => "Enter your current password to confirm your changes" %>
+		<%= f.input :current_password,
+								:hint => "Enter your current password to confirm your changes",
+								:required => true %>
 		<%= f.input :email %>
-		<%= f.input :password, :hint => "Leave this blank if you don't want to change your password" %>
+		<%= f.input :password,
+								:hint => "Leave this blank if you don't want to change your password",
+								:required => false %>
 		<%= f.input :password_confirmation %>
 	
 	<%= f.semantic_fields_for :profile do |p| %>
 		<%= p.input :city %>
-		<%= p.input :occupation, :hint => "Be descriptive, e.g. \"Marketing Strategy Consultant\" rather than \"Associate\", \"History Major\" rather than \"Student\" " %>
-		<%= p.input :organization, :hint => "Where you work or study" %>
+		<%= p.input :occupation,
+								:hint => "Be descriptive, e.g. \"Marketing Strategy Consultant\" rather than \"Associate\", \"History Major\" rather than \"Student\" " %>
+		<%= p.input :organization,
+								:hint => "Where you work or study",
+								:required => false %>
 		<%= p.input :organization_url %>
-		<%= p.input :linkedin_url, :label => "LinkedIn url", :hint => "public profile url, e.g. http://www.linkedin.com/pub/tim-koelkebeck/1/a11/a86" %>
+		<%= p.input :linkedin_url,
+								:label => "LinkedIn url",
+								:hint => "public profile url, e.g. http://www.linkedin.com/pub/tim-koelkebeck/1/a11/a86" %>
 		<%= p.input :twitter_url %>
 		<%= p.input :facebook_url %>
 		<%= p.input :blog_url %>

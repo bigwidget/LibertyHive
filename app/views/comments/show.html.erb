@@ -4,7 +4,7 @@
 	<div class="meta-head">
 	<%= render 	:partial => 'shared/meta', 
 							:locals => {:item => @comment,
-													:ref_link => link_to("link", @comment)} %>
+													:ref_link => link_to("full discussion", @comment.link)} %>
 	</div>
 	<div>
 		<%= @comment.content %>
@@ -13,7 +13,7 @@
                                         	:parent_id => @comment.id ) do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
 	<div class="field">
-		<%= f.text_area :content, :rows => "5" %>
+		<%= f.text_area :content, :rows => 8, :cols => 60 %>
 	</div>
 	<div><%= f.hidden_field :link_id %></div>
 	<div><%= f.hidden_field :parent_id %></div>

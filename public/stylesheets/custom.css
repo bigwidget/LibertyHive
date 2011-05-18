@@ -8,10 +8,6 @@ a:hover {
   text-decoration: underline;
 }
 
-a:link, a:visited, a:active, a:hover {
-	color: black;
-}
-
 /* forms.css */
 
 .container {
@@ -34,8 +30,8 @@ header {
 div.site-title {
 }
 
-
 a.site-title:link, a.site-title:visited, a.site-title:active, a.site-title:hover {
+	color: black;
 	font-family: "Britannic Bold", "Arial Black";
 	font-size: 350%;
 	font-weight: bold;
@@ -87,6 +83,7 @@ nav ul li {
 
 nav ul li a {
 	padding: 0 5px;
+	color: black;
 }
 
 nav ul li a:hover {
@@ -137,23 +134,6 @@ table.profile {
   margin-bottom: 0;
 }
 
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
-
 div.field, div.actions {
 	margin-bottom: 10px;
 }
@@ -196,73 +176,16 @@ div.field, div.actions {
   padding: 5px;
 }
 
+#error_explanation ul {
+	margin-top: 1em;
+	padding-left: 1.5em;
+}
+
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-ul.users {
-	margin-top: 1em;
-}
-
-.users li {
-	list-style: none;	
-}
-
-h1.micropost {
-  margin-bottom: 0.3em;
-}
-
-table.microposts {
-  margin-top: 1em;
-}
-
-table.microposts tr {
-  height: 70px;
-}
-
-table.microposts tr td.gravatar {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  width: 50px;
-}
-
-table.microposts tr td.micropost {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  padding-top: 10px;
-}
-
-table.microposts tr td.micropost span.timestamp {
-  display: block;
-  font-size: 85%;
-  color: #666;
-}
-
-div.user_info img {
-  padding-right: 0.1em;
-}
-
-div.user_info a {
-  text-decoration: none;
-}
-
-div.user_info span.user_name {
-  position: absolute;
-}
-
-div.user_info span.microposts {
-  font-size: 80%;
-}
-
-form.new_micropost {
-  margin-bottom: 2em;
-}
-
-form.new_micropost textarea {
-  height: 4em;
-  margin-bottom: 0;
-}
 
 .rank {
 	float: left;
@@ -283,6 +206,10 @@ form.new_micropost textarea {
 
 .headline a {
 	color: black;
+}
+
+.headline a:hover {
+	text-decoration: none;
 }
 
 .meta-head {
@@ -324,4 +251,8 @@ form.new_micropost textarea {
 	font-size: 80%;
 	color: #666;
 	top: -3px;
+}
+
+.pagination a {
+	color: black;
 }
