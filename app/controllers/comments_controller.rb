@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    store_referer
     @comment = current_user.comments.build(params[:comment])
     if @comment.save
       flash[:success] = "Comment posted!"
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
       redirect_to (@comment.parent ? @comment.parent : @comment.link)
     else
       @title = "whouls be first ~100 characters in post"
-      redirect_to root_path
+      redirect_back_or root_path
     end
   end
   

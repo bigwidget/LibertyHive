@@ -12,15 +12,22 @@ class UriValidator < ActiveModel::EachValidator
     
     if value =~ configuration[:format]
       begin # check header response
-        case Net::HTTP.get_response(URI.parse(value))
-          when Net::HTTPSuccess then true
-          else object.errors.add(attribute, configuration[:message]) and false
-        end
+        fetch(value)
       rescue # Recover on DNS failures..
         object.errors.add(attribute, configuration[:message]) and false
       end
     else
       object.errors.add(attribute, configuration[:message]) and false
+    end
+  end
+  
+  def fetch(uri_str, limit=10)
+    response = Net::HTTP.get_response(URI.parse(uri_str))
+    case response
+      when Net::HTTPSuccess     then response
+      when Net::HTTPRedirection then fetch(response['location'], limit - 1)
+    else
+      response.error!
     end
   end
 end

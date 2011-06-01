@@ -1,13 +1,14 @@
 class VotesController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :store_referer
   
   def create
+    logger.debug "made it to the votes controller"
     @votable = Vote.new(params[:vote]).votable
     current_user.vote_for!(@votable)
   
     if params[:vote][:votable_type] == "Link"
-      redirect_to links_path  #stay on links page
+      redirect_back_or links_path  #stay on links page
     else
       redirect_to Link.find(@votable.link_id)   #stay on link discussion page
     end

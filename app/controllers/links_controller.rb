@@ -18,6 +18,7 @@ class LinksController < ApplicationController
   end
   
   def create
+    logger.debug "inside the create method"
     @link = current_user.links.build(params[:link])
     if @link.save
       redirect_to root_path
