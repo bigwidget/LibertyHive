@@ -12,10 +12,11 @@ class CommentsController < ApplicationController
       @comment.send_notification
       redirect_to (@comment.parent ? @comment.parent : @comment.link)
     else
+      @title = "whouls be first ~100 characters in post"
       redirect_to root_path
     end
   end
-
+  
   def destroy
     @comment.destroy
   end

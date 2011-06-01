@@ -6,7 +6,7 @@ class Profile < ActiveRecord::Base
   validates_presence_of :organization, :if => :entered_organization_url?
   
   def entered_organization_url?
-    organization_url
+    organization_url.present?
   end
   
 end

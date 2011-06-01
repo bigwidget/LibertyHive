@@ -41,7 +41,7 @@ def make_links
   users = User.all
   35.times do |n|
     user = users[n]
-    url = Faker::Internet.domain_name
+    url = "http://www." + Faker::Internet.domain_name
     headline = Faker::Lorem::sentence(2 + rand(4))
     user.links.create!(:url => url, :headline => headline)
   end

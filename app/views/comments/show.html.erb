@@ -7,7 +7,7 @@
 													:ref_link => link_to("full discussion", @comment.link)} %>
 	</div>
 	<div>
-		<%= @comment.content %>
+		<%= @comment.content.html_safe %>
 	</div>
 	<%= form_for current_user.comments.build( :link_id => @comment.link_id, 
                                         	:parent_id => @comment.id ) do |f| %>

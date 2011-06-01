@@ -1,4 +1,9 @@
 class Comment < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::TagHelper
+  
+  before_save :convert_links
+  
   attr_accessible :content, :link_id, :parent_id, :commenter_id
   
   belongs_to :commenter, :class_name => "User"
@@ -8,12 +13,18 @@ class Comment < ActiveRecord::Base
   has_many :votes, :as => :votable
   has_many :replies, :class_name => "Comment", :foreign_key => "parent_id"
   
+  validates :content, :presence => true
+  
   def submitter
     return commenter
   end
       
   def is_root?
     !parent
+  end
+  
+  def convert_links
+    self.content = auto_link(simple_format(content))
   end
     
   def send_notification

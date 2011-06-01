@@ -2,7 +2,7 @@
 
 <ol class="list">
 	<% @upvoted_links.each_index do |i| %>
-		<%= render :partial => 'shared/link', :locals => {:link => @upvoted_links[i], :rank => i + 1} %>
+		<%= render :partial => 'shared/link', :locals => {:link => @upvoted_links[i], :rank => base_rank + i + 1} %>
 	<% end %>
 </ol>
 

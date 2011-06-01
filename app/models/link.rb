@@ -6,7 +6,9 @@ class Link < ActiveRecord::Base
   has_many :comments, :foreign_key => "link_id"     #### SPECIFICATIONS
 
   validates :url,       :presence   => true,
-                        :uniqueness => true
+                        :uniqueness => true,
+                        :uri => { :format => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix }
+
   validates :headline,  :presence   => true,
                         :length     => { :maximum => 80 }
   
@@ -34,6 +36,14 @@ class Link < ActiveRecord::Base
   def full_url
     "http://" + url
   end
-      
+  
+  def domain
+    URI.parse(url).host.sub(/\Awww\./, '')
+  end
+  
+  def domain_paren
+    "(" + domain + ")"
+  end
+  
   default_scope :order => 'links.score DESC'
 end
