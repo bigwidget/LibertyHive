@@ -10,6 +10,7 @@ class Link < ActiveRecord::Base
 
   validates :url,       :presence   => true,
                         :uniqueness => true
+                        #:uri => { :format => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix }
                         
   validates :headline,  :presence   => true,
                         :length     => { :maximum => 80 }
