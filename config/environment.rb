@@ -1,4 +1,4 @@
-PER_PAGE = 10
+PER_PAGE = 20
 
 # Load the rails application
 require File.expand_path('../application', __FILE__)

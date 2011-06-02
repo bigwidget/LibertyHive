@@ -1,52 +1,15 @@
 <% if @user == current_user %>
-<%= link_to("Edit your account", edit_user_registration_path(@user)) %>
+<%= link_to("Edit your account", edit_user_registration_path(@user)) %> |
 <% end %>
+<%= link_to("All users", users_path)%>
+<br /><br />
 
-<table>
+<table class="profile">
 	<tr>
 		<td valign=top>Name:</td>
 		<td><%= @user.name %></td>
 	</tr>
-	<tr>
-		<td valign=top>Karma:</td>
-		<td><%= @user.karma %></td>
-	</tr>
-	<tr>
-		<td valign=top>Hive&nbsp;activity:&nbsp;&nbsp;</td>
-		<td>
-		<% if @activity %>
-			<% @previous = false%>
-			<% if !@user.links.empty? %>
-			<%= link_to("link submissions", links_user_path(@user)) %> 
-			<% previous = true %>
-			<% end %>
-			<% if !@user.comments.empty? %>
-			<% if previous %> | <% end %>
-			<%= link_to("comments", 				comments_user_path(@user)) %> 
-			<% end %>
-			<% if !@link_votes.empty? %>
-			<% if previous %> | <% end %>
-			<%= link_to("upvoted links",		upvoted_user_path(@user)) %>
-			<% end %>
-		<% else %>
-			none
-		<% end %>
-		</td>
-	</tr>
-	<% if @user.profile.about.present? %>
-	<tr>
-		<td valign=top>About:</td>
-		<td><%= @user.profile.about %></td>
-	</tr>
-	<% end %>
-
-	<% if @user.profile.city.present? %>
-	<tr>
-		<td valign=top>City:</td>
-		<td><%= @user.profile.city %></td>
-	</tr>
-	<% end %>
-
+	
 	<% if @work %>
 	<tr>
 		<td valign=top>Work:</td>
@@ -67,24 +30,71 @@
 		</td>
 	</tr>
 	<% end %>
+
+	<% if @user.profile.city.present? %>
+	<tr>
+		<td valign=top>City:</td>
+		<td><%= @user.profile.city %></td>
+	</tr>
+	<% end %>
+	
+	<tr>
+		<td valign=top>Karma:</td>
+		<td><%= @user.karma %></td>
+	</tr>
+
+	<tr>
+		<td valign=top>Hive&nbsp;activity:</td>
+		<td>
+		<% if @activity %>
+			<% previous = false%>
+			<% if !@user.links.empty? %>
+			<%= link_to("link submissions", links_user_path(@user)) %> 
+			<% previous = true %>
+			<% end %>
+			<% if !@user.comments.empty? %>
+			<% if previous %> | <% end %>
+			<%= link_to("comments", 				comments_user_path(@user)) %> 
+			<% end %>
+			<% if !@link_votes.empty? %>
+			<% if previous %> | <% end %>
+			<%= link_to("upvoted links",		upvoted_user_path(@user)) %>
+			<% end %>
+		<% else %>
+			none
+		<% end %>
+		</td>
+	</tr>
+	<% if @user.profile.about.present? %>
+	<tr>
+		<td valign=top>About:</td>
+		<td><%= auto_link(simple_format(@user.profile.about)).html_safe %></td>
+	</tr>
+	<% end %>
 	
 	<% if @any_url %>
 	<tr>
 		<td valign=top>Find Me:</td>
 		<td>
+			<% previous = false%>
 			<% if @user.profile.linkedin_url.present? %>
 				<%= link_to "LinkedIn", @user.profile.linkedin_url %>
+				<% previous = true%>
 			<% end %>
 			<% if @user.profile.twitter_url.present? %>
+				<% if previous %> | <% end %>
 				<%= link_to "Twitter", @user.profile.twitter_url %>
 			<% end %>
 			<% if @user.profile.blog_url.present? %>
+				<% if previous %> | <% end %>
 				<%= link_to "Blog", @user.profile.blog_url %>
 			<% end %>
 			<% if @user.profile.personal_url.present? %>
+				<% if previous %> | <% end %>
 				<%= link_to "Personal Site", @user.profile.personal_url %>
 			<% end %>
 			<% if @user.profile.facebook_url.present? %>
+				<% if previous %> | <% end %>
 				<%= link_to "Facebook", @user.profile.facebook_url %>
 			<% end %>	
 		</td>

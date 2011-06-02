@@ -2,7 +2,7 @@ class LinksController < ApplicationController
 
   def index
     @title = "Links"
-    @links = Link.paginate(:page => params[:page], :per_page => PER_PAGE)
+    @links = Link.order('created_at DESC').paginate(:page => params[:page], :per_page => PER_PAGE)
   end
   
   def show
@@ -21,6 +21,7 @@ class LinksController < ApplicationController
     logger.debug "inside the create method"
     @link = current_user.links.build(params[:link])
     if @link.save
+      flash[:success] = "Link submitted"
       redirect_to root_path
     else
       @title = "Submit a link"

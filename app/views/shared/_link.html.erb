@@ -4,7 +4,7 @@
 	<div class="item-main">
 		<div class="headline">
 			<%= link_to(link.headline, link.url, :only_path => false, :host => "http://") %>
-			<%= link.domain_paren %>
+			<span class="domain"><%= link.domain_paren %></span>
 		</div>
  		<div class="meta-foot">
 			<%= render 	:partial => 'shared/meta',

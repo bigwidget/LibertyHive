@@ -1,4 +1,7 @@
 class Link < ActiveRecord::Base
+  default_scope order('created_at DESC')
+  #default_scope :order => 'links.score DESC'
+  
   attr_accessible :url, :headline
 
   belongs_to :submitter, :class_name => 'User'
@@ -45,5 +48,4 @@ class Link < ActiveRecord::Base
     "(" + domain + ")"
   end
   
-  default_scope :order => 'links.score DESC'
 end

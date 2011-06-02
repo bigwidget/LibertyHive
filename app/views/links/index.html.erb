@@ -1,3 +1,7 @@
+<% if user_signed_in? %>
+<p class="submit-link">	<%= link_to "Submit a link", new_link_path %> </p>
+<% end %>
+
 <ol class="list">
 	<% @links.each_index do |i| %>
 		<%= render :partial => 'shared/link', :locals => {:link => @links[i], :rank => base_rank + i + 1} %>
