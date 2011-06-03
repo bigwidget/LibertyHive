@@ -2,7 +2,8 @@
 	<%= render :partial => 'shared/vote', :locals => {:votable => @link} %>
 	<div class="item-main">
 		<div class="headline">
-			<a href="<%= @link.full_url %>"><%= @link.headline %></a>
+			<%= link_to(@link.headline, @link.url, :only_path => false, :host => "http://") %>
+			<span class="domain"><%= @link.domain_paren %></span>
 		</div>
 		<div class="meta-foot">
 			<%= render 	:partial => 'shared/meta',
