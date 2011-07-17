@@ -1,15 +1,17 @@
 <header>
 	<div class="site-title">
 		<%= link_to "Liberty Hive", root_path, :class => "site-title" %>
-		<span class="beta">buggy beta</span>
+		<span class="beta">beta</span>
 	</div>
 	<nav>
     <ul>
 	    <% if user_signed_in? %>
+			<li><%= link_to "Submit", new_link_path %></li>
 			<li><%= link_to current_user.name, current_user %></li>
 		  <li><%= link_to "Sign out", destroy_user_session_path %></li>
 		  <% else %>
-		 	<li><%= link_to "Sign in", new_user_session_path %></li>
+			<li><%= link_to "Sign up", new_user_registration_path %></li>
+			<li><%= link_to "Sign in", new_user_session_path %></li>
 		  <% end %>
     </ul>
   </nav>
