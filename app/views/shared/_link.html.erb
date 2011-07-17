@@ -3,7 +3,7 @@
 	<%= render :partial => 'shared/vote', :locals => {:votable => link} %>
 	<div class="item-main">
 		<div class="headline">
-			<%= link_to(link.headline, link.url, :only_path => false, :host => "http://") %>
+			<%= link_to(link.headline, link.url, :only_path => false, :host => "http://", :target=> 'blank') %>
 			<span class="domain"><%= link.domain_paren %></span>
 		</div>
  		<div class="meta-foot">
