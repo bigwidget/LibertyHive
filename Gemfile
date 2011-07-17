@@ -10,7 +10,7 @@ gem 'formtastic', '1.2.3'
 gem 'devise', '1.3.4'
 
 group :development do
-	gem 'annotate-models', '1.0.4'
+	# gem 'annotate-models', '1.0.4'
 	gem 'faker', '0.3.1'
 end
 
