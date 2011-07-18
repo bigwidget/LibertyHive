@@ -3,7 +3,6 @@ class VotesController < ApplicationController
   before_filter :authenticate_user!, :store_referer
   
   def create
-    logger.debug "made it to the votes controller"
     @votable = Vote.new(params[:vote]).votable
     current_user.vote_for!(@votable)
   
