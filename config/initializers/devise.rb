@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "libertyhive@gmail.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -55,6 +55,26 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = "888501668507ba72d09af75abce789207d5a2d45b8be1230ddb39dc6916c85c3c9c4782ae5aad4df6c0cb1bd4d76d86f1ddc34d75f83251cf7faa2e23a4cb741"
+
+  # ==> Configuration for :invitable
+  # The period the generated invitation token is valid, after
+  # this period, the invited resource won't be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation won't expire.
+  # config.invite_for = 2.weeks
+  
+  # Number of invitations users can send.
+  # If invitation_limit is nil, users can send unlimited invitations.
+  # If invitation_limit is 0, users can't send invitations.
+  # If invitation_limit n > 0, users can send n invitations.
+  # Default: nil
+  # config.invitation_limit = 5
+  
+  # The key to be used to check existing users when sending an invitation
+  # config.invite_key = :email
+  
+  # Flag that force a record to be valid before being actually invited 
+  # Default: false
+  # config.validate_on_invite = true
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time

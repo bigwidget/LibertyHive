@@ -1,5 +1,7 @@
 Libertyhive::Application.routes.draw do
 
+  match '/users/sign_up', :to => 'links#index'  #temporarily blocking open sign up
+
   devise_for :users
   
   match '/contact', :to => 'pages#contact'
