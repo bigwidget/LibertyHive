@@ -1,12 +1,10 @@
 Libertyhive::Application.routes.draw do
 
-<<<<<<< HEAD
   match '/users/sign_up', :to => 'links#index'  #temporarily blocking open sign up
-=======
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
->>>>>>> 700cc3a21cd70be94ba96bb3167102b1da42bbc2
 
   devise_for :users
   
